@@ -9,6 +9,8 @@ models:
       {# Info about budget #}
     columns:
       - name: product_id
+        description: >
+          {#later, PK is gonna be the merge of month and product_id#} 
         constraints:
           - type: not_null
         data_type: varchar
