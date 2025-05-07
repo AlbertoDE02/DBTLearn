@@ -2,7 +2,6 @@ version: 2
 
 models:
   - name: budget
-    latest_version: 1
     config:
       materialized: view
     description: >
