@@ -18,7 +18,6 @@ casted_users as (
             WHEN phone_number RLIKE '^\d{9}$' THEN 'Válido'
             ELSE 'Inválido'
         END AS phone_number_valid,
-        total_orders,
         first_name,
             CASE 
             WHEN email RLIKE '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$' THEN 'Válido'
