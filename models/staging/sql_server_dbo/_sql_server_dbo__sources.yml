@@ -1,10 +1,9 @@
 version: 2
 
 sources:
-
-  - name: sql_server_dbo # name of the source 
-    schema: sql_server_dbo # this is the schema our raw data lives in
-    database: ALUMNO2_DEV_BRONZE_DB # this is the name of our database
+  - name: sql_server_dbo
+    schema: sql_server_dbo
+    database: ALUMNO2_DEV_BRONZE_DB
 
     quoting:
       database: false
@@ -12,11 +11,12 @@ sources:
       identifier: false
 
     freshness:
-      warn_after: {count: 100, period: day}
-      error_after: {count: 100, period: day}
+      warn_after: { count: 100, period: day }
+      error_after: { count: 100, period: day }
 
     tables:
       - name: addresses
+        description: "Contiene información de direcciones de los usuarios, como país, estado y código postal."
         loaded_at_field: _fivetran_synced
         columns:
           - name: address_id
@@ -31,6 +31,7 @@ sources:
           - name: _fivetran_synced
 
       - name: events
+        description: "Registra eventos generados por los usuarios durante su interacción con la plataforma (por ejemplo, clics, vistas o compras)."
         loaded_at_field: _fivetran_synced
         columns:
           - name: event_id
@@ -48,6 +49,7 @@ sources:
           - name: _fivetran_synced
 
       - name: orders
+        description: "Contiene los pedidos realizados por los usuarios, incluyendo detalles de envío, costo y estado de entrega."
         loaded_at_field: _fivetran_synced
         columns:
           - name: order_id
@@ -70,6 +72,7 @@ sources:
           - name: _fivetran_synced
 
       - name: order_items
+        description: "Detalles de los productos incluidos en cada pedido, con información como cantidad y producto relacionado."
         loaded_at_field: _fivetran_synced
         columns:
           - name: order_id
@@ -77,7 +80,9 @@ sources:
           - name: quantity
           - name: _fivetran_deleted
           - name: _fivetran_synced
+
       - name: products
+        description: "Lista de productos disponibles en el sistema, con su nombre, precio y nivel de inventario."
         loaded_at_field: _fivetran_synced
         columns:
           - name: product_id
@@ -88,6 +93,7 @@ sources:
           - name: _fivetran_synced
 
       - name: promos
+        description: "Promociones aplicables a pedidos, incluyendo descuentos y estado (activo/inactivo)."
         loaded_at_field: _fivetran_synced
         columns:
           - name: promo_id
@@ -97,6 +103,7 @@ sources:
           - name: _fivetran_synced
 
       - name: users
+        description: "Información de los usuarios registrados, incluyendo nombre, correo electrónico, dirección y número de pedidos."
         loaded_at_field: _fivetran_synced
         columns:
           - name: user_id
