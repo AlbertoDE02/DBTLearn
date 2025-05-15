@@ -53,3 +53,11 @@ models:
       - name: inventory
       - name: _fivetran_deleted
       - name: _fivetran_synced 
+  - name: order_status
+    columns:
+      - name: _row
+      - name: status_id
+        tests:
+          - unique
+      - name: status
+ 
