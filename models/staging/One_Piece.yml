@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: ONE_PIECE
+    database: ALUMNO2_DEV_BRONZE_DB  
+    schema: ONE_PIECE 
+    tables:
+      - name: personajes
+        description: "Tabla con los personajes del anime"
+        columns:
+          - name: id
+            description: "ID único de cada personaje"
+            tests:
+              - unique
+              - not_null
+          - name: nombre
+            description: "Nombre del personaje"
+            tests:
+              - not_null
+          - name: rol
+            description: "Rol del personaje (ej. protagonista, villano)"
+            tests:
+              - not_null
+
+      - name: arcos
+        description: "Tabla con los arcos de la serie"
+        columns:
+          - name: id
+            description: "ID único de cada arco"
+            tests:
+              - unique
+              - not_null
+          - name: nombre
+            description: "Nombre del arco"
+            tests:
+              - not_null
+          - name: descripcion
+            description: "Descripción del arco"
+
+      - name: frutas
+        description: "Tabla con las frutas presentes en la serie"
+        columns:
+          - name: id
+            description: "ID único de cada fruta"
+            tests:
+              - unique
+              - not_null
+          - name: nombre
+            description: "Nombre de la fruta"
+            tests:
+              - not_null
+          - name: familia
+            description: "Familia botánica de la fruta"
