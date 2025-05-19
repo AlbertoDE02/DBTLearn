@@ -7,21 +7,19 @@ personajes as (
 ),
 
 personajes_ as (
-
     select
         id,
         nombre,
-        tamano,
+        tamano AS Altura,
         edad,
         recompensa,
-        trabajo,
+        trabajo AS Puesto,
         estado,
-        nombre_tripulacion,
+        nombre_tripulacion as Tripulacion,
         id_tripulacion,
-        fruto,
+        fruto as Fruta,
         tipo_fruto,
-        fruto_romanizado
-
+        fruto_romanizado AS Nombre_Fruta_Occidental
     from personajes
 
 )
