@@ -72,15 +72,4 @@ sources:
             description: Nombre del personaje
           - name: SAGAS
             description: Nombre de la saga
-      - name: stg_ONE_PIECE_personajes_frutas
-        description: Personajes que tienen fruta del diablo con sus características.
-        columns:
-        - name: id
-          description: ID del personaje.
-          tests: [not_null, unique]
-        - name: fruta
-          description: Nombre del fruto del diablo.
-        - name: tipo_fruta
-          description: Tipo de fruta (Zoan, Logia, Paramecia, etc.)
-        - name: nombre_fruta_occidental
-          description: Nombre romanizado del fruto del diablo.
+      
