@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: base_personajes
+    description: >
+      Modelo base que extrae los datos de personajes desde la fuente ONE_PIECE.personajes.
+      Se aplica limpieza mínima como coalesce en algunos campos y se mantiene la estructura original para referencia posterior.
+    columns:
+      - name: id
+        description: "Identificador único del personaje"
+        tests: [not_null, unique]
+      - name: nombre
+        description: "Nombre original del personaje"
+      - name: tamano
+        description: "Altura o tamaño del personaje; nulos reemplazados por 'No especificada'"
+      - name: edad
+        description: "Edad del personaje"
+      - name: estado
+        description: "Estado actual del personaje"
+      - name: trabajo
+        description: "Ocupación o rol"
+      - name: recompensa
+        description: "Recompensa en berries"
+      - name: id_tripulacion
+        description: "Identificador de la tripulación a la que pertenece"
+      - name: nombre_tripulacion
+        description: "Nombre de la tripulación"
+      - name: fruto
+        description: "Fruto del diablo que ha comido (si aplica); nulos → 'Sin fruta'"
+      - name: tipo_fruto
+        description: "Clasificación del fruto del diablo; nulos → 'Desconocido'"
+      - name: fruto_romanizado
+        description: "Nombre del fruto romanizado"
