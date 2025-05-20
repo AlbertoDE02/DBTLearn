@@ -1,0 +1,86 @@
+version: 2
+
+sources:
+  - name: ONE_PIECE
+    database: ALUMNO2_DEV_BRONZE_DB
+    schema: ONE_PIECE
+    description: "Base de datos bronce que contiene las tablas crudas del universo One Piece"
+
+    tables:
+      - name: personajes
+        description: "Tabla original con información detallada de los personajes"
+        columns:
+          - name: id
+            description: "ID único del personaje"
+            tests: [not_null, unique]
+          - name: nombre
+            description: "Nombre original del personaje"
+          - name: tamano
+            description: "Altura del personaje (puede contener nulos)"
+          - name: edad
+            description: "Edad del personaje"
+          - name: trabajo
+            description: "Puesto o rol desempeñado"
+          - name: estado
+            description: "Estado actual del personaje (vivo, muerto, etc.)"
+          - name: nombre_tripulacion
+            description: "Nombre de la tripulación"
+          - name: id_tripulacion
+            description: "ID de la tripulación"
+          - name: fruto
+            description: "Nombre del fruto del diablo"
+          - name: tipo_fruto
+            description: "Tipo del fruto"
+          - name: fruto_romanizado
+            description: "Nombre romanizado del fruto"
+
+      - name: frutas
+        description: "Tabla cruda con datos de los frutos del diablo"
+        columns:
+          - name: id
+            description: "ID del personaje que posee el fruto"
+            tests: [not_null]
+          - name: name
+            description: "Nombre del fruto"
+          - name: type
+            description: "Tipo del fruto (puede venir nulo)"
+          - name: description
+            description: "Descripción larga del fruto"
+          - name: roman_name
+            description: "Nombre romanizado del fruto"
+
+      - name: arcos
+        description: "Tabla con los arcos narrativos del manga y anime"
+        columns:
+          - name: saga
+            description: "Nombre del arco"
+            tests: [not_null, unique]
+          - name: capitulos_manga
+            description: "Número de capítulos del manga"
+          - name: inicio_manga
+            description: "Fecha de inicio en manga (DD/MM/YYYY)"
+          - name: fin_manga
+            description: "Fecha de fin en manga (DD/MM/YYYY)"
+          - name: inicio_anime
+            description: "Fecha de inicio en anime (DD/MM/YYYY)"
+          - name: fin_anime
+            description: "Fecha de fin en anime (DD/MM/YYYY)"
+      - name: personajes_arcos
+        description: Las sagas donde aparecen los personajes.
+        columns:
+          - name: PERSONAJES
+            description: Nombre del personaje
+          - name: SAGAS
+            description: Nombre de la saga
+      - name: stg_ONE_PIECE_personajes_frutas
+        description: Personajes que tienen fruta del diablo con sus características.
+        columns:
+        - name: id
+          description: ID del personaje.
+          tests: [not_null, unique]
+        - name: fruta
+          description: Nombre del fruto del diablo.
+        - name: tipo_fruta
+          description: Tipo de fruta (Zoan, Logia, Paramecia, etc.)
+        - name: nombre_fruta_occidental
+          description: Nombre romanizado del fruto del diablo.

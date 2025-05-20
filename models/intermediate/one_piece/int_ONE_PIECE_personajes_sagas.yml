@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: int_ONE_PIECE_personajes_sagas
+    description: Relación entre personajes y las sagas en las que aparecen, con fechas y capítulos de manga y anime.
+    columns:
+      - name: nombre
+        description: Nombre del personaje.
+        tests:
+          - not_null
+      - name: saga
+        description: Nombre de la saga.
+        tests:
+          - not_null
+      - name: capitulos_manga
+        description: Rango de capítulos del manga para esa saga.
+      - name: fecha_inicio_manga
+        description: Fecha de inicio de la saga en el manga.
+      - name: fecha_fin_manga
+        description: Fecha de fin de la saga en el manga.
+      - name: fecha_inicio_anime
+        description: Fecha de inicio de la saga en el anime.
+      - name: fecha_fin_anime
+        description: Fecha de fin de la saga en el anime.
