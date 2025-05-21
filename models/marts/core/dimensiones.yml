@@ -1,0 +1,162 @@
+version: 2
+
+models:
+  - name: dim_fecha
+    description: >
+      Dimensión de fechas generada con dbt_utils.date_spine, cubre desde 1900 hasta 2100 
+      con múltiples atributos derivados como día, mes, trimestre, nombre del día y si es fin de semana.
+    columns:
+      - name: fecha
+        description: Fecha completa.
+        tests:
+          - unique
+          - not_null
+
+      - name: anio
+        description: Año de la fecha.
+
+      - name: mes
+        description: Mes numérico (1-12).
+
+      - name: dia
+        description: Día del mes (1-31).
+
+      - name: nombre_dia
+        description: Nombre textual del día de la semana.
+
+      - name: nombre_mes
+        description: Nombre textual del mes.
+
+      - name: dia_semana
+        description: Día de la semana numérico (1 = Domingo, 7 = Sábado).
+
+      - name: semana_anual
+        description: Número de semana en el año (1-52).
+
+      - name: trimestre
+        description: Trimestre del año (1-4).
+
+      - name: es_fin_de_semana
+        description: TRUE si la fecha es sábado o domingo.
+
+  - name: dim_personajes
+    description: >
+      Dimensión que contiene información depurada y renombrada de los personajes del universo de One Piece.
+    columns:
+      - name: id_personaje
+        description: Identificador único del personaje.
+        tests:
+          - not_null
+          - unique
+
+      - name: nombre_personaje
+        description: Nombre del personaje.
+
+      - name: tamano
+        description: Tamaño del personaje. Si está vacío, se rellena con "No especificada".
+
+      - name: edad
+        description: Edad del personaje (si está disponible).
+
+      - name: recompensa
+        description: Valor de la recompensa asociada al personaje.
+
+      - name: puesto
+        description: Ocupación, trabajo o rol del personaje.
+
+      - name: estado
+        description: Estado actual del personaje.
+
+      - name: nombre_tripulacion
+        description: Nombre de la tripulación a la que pertenece.
+
+      - name: id_tripulacion
+        description: Identificador de la tripulación.
+
+      - name: nombre_fruta
+        description: Nombre de la fruta del diablo que ha consumido el personaje.
+
+      - name: tipo_fruta
+        description: Tipo de fruta (Paramecia, Zoan, Logia...).
+
+      - name: fruto_romanizado
+        description: Nombre de la fruta en versión romanizada.
+
+  - name: dim_frutas
+    description: >
+      Dimensión de frutas del diablo en el universo de One Piece. Contiene nombre, tipo, romanización y descripción.
+    columns:
+      - name: id_fruta
+        description: Identificador único de la fruta del diablo.
+        tests:
+          - not_null
+          - unique
+
+      - name: nombre_fruta
+        description: Nombre oficial de la fruta del diablo.
+
+      - name: descripcion
+        description: Descripción de las habilidades o efectos que otorga la fruta.
+
+      - name: fruto_romanizado
+        description: Nombre romanizado de la fruta.
+
+      - name: tipo_fruta
+        description: Clasificación de la fruta (Paramecia, Zoan, Logia...).
+
+  - name: dim_tripulaciones
+    description: >
+      Dimensión que contiene la información única de las tripulaciones a las que pertenecen los personajes.
+    columns:
+      - name: id_tripulacion
+        description: Identificador único de la tripulación.
+        tests:
+          - not_null
+          - unique
+
+      - name: nombre_tripulacion
+        description: Nombre de la tripulación, banda o facción del personaje.
+
+  - name: dim_estado
+    description: >
+      Dimensión de estados vitales para los personajes (vivo, muerto, desconocido).
+    columns:
+      - name: id_estado
+        description: Identificador único del estado del personaje.
+        tests:
+          - not_null
+          - unique
+
+      - name: estado
+        description: Valor textual del estado, tal como aparece en los datos de origen.
+
+      - name: descripcion_estado
+        description: Descripción explicativa del estado.
+
+  - name: dim_sagas
+    description: >
+      Dimensión que contiene información de cada saga de One Piece: capítulos, fechas de manga y anime.
+    columns:
+      - name: nombre_saga
+        description: Nombre oficial de la saga.
+        tests:
+          - not_null
+          - unique
+
+      - name: capitulos_manga
+        description: Cantidad de capítulos del manga en esa saga.
+
+      - name: inicio_manga
+        description: Fecha de inicio del manga para esa saga.
+
+      - name: fin_manga
+        description: Fecha de fin del manga para esa saga.
+
+      - name: episodios_anime
+        description: Número de episodios del anime correspondientes.
+
+      - name: inicio_anime
+        description: Fecha de inicio del anime para esa saga.
+
+      - name: fin_anime
+        description: Fecha de finalización del anime para esa saga.
