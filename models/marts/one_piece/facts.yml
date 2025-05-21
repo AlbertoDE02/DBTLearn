@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: fct_personajes
+    description: >
+      Tabla de hechos con métricas por personaje, enlazando todas las dimensiones clave: estado, fruta, saga, tripulación y fecha de aparición.
+    columns:
+      - name: id_personaje
+        description: Identificador único del personaje.
+        tests:
+          - not_null
+          - unique
+
+      - name: id_tripulacion
+        description: Clave foránea hacia la dimensión de tripulaciones.
+
+      - name: nombre_tripulacion
+        description: Nombre de la tripulación del personaje.
+
+      - name: id_fruta
+        description: Clave foránea hacia la dimensión de frutas.
+
+      - name: nombre_fruta
+        description: Nombre de la fruta consumida.
+
+      - name: tipo_fruta
+        description: Tipo de fruta del diablo.
+
+      - name: id_estado
+        description: Clave foránea hacia la dimensión de estado.
+
+      - name: estado
+        description: Estado vital del personaje.
+
+      - name: nombre_saga
+        description: Saga narrativa en la que aparece el personaje.
+
+      - name: fecha_aparicion_estimada
+        description: Fecha de aparición aproximada del personaje (inicio de la saga).
+
+      - name: edad
+        description: Edad conocida del personaje.
+
+      - name: recompensa
+        description: Valor actual de su recompensa.
+
+      - name: es_vivo
+        description: Flag 1/0 que indica si el personaje está vivo.
+
+      - name: tiene_fruta
+        description: Flag 1/0 que indica si el personaje tiene fruta del diablo.
