@@ -1,6 +1,5 @@
 {{ config(
     materialized = 'table',
-    alias = 'mart_metricas_tripulaciones'
 ) }}
 
 with personajes as (
@@ -57,7 +56,7 @@ select
     coalesce(recompensa_promedio, 0) as recompensa_promedio,
     coalesce(recompensa_maxima, 0) as recompensa_maxima,
     personajes_con_fruta,
-    porcentaje_con_fruta || '%',
-    porcentaje_sin_fruta_con_recompensa || '%'
+    porcentaje_con_fruta || '%' AS porcentaje_con_fruta,
+    porcentaje_sin_fruta_con_recompensa || '%' AS porcentaje_sin_fruta_con_recompensa
 from conteo_estados
 order by tripulantes_vivos desc

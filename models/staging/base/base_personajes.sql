@@ -1,6 +1,5 @@
 {{ config(materialized='table') }}
 
-
 select
     id,
     nombre,

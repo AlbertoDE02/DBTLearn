@@ -1,7 +1,4 @@
-{{ config(
-    materialized = 'table',
-    alias = 'fct_personajes'
-) }}
+{{ config( materialized = 'table',) }}
 
 with base as (
 
