@@ -49,3 +49,39 @@ models:
 
       - name: tiene_fruta
         description: Flag 1/0 que indica si el personaje tiene fruta del diablo.
+
+  - name: mart_metricas_personajes
+    description: >
+      Tabla de métricas avanzadas por tripulación, fruta y saga, incluyendo porcentajes, medias y valores máximos.
+    columns:
+      - name: nombre_tripulacion
+        description: Nombre de la tripulación.
+        tests:
+          - not_null
+
+      - name: total_personajes
+        description: Número total de personajes en la tripulación.
+
+      - name: porcentaje_con_fruta
+        description: Porcentaje de personajes que poseen fruta en la tripulación.
+
+      - name: recompensa_promedio
+        description: Recompensa promedio de los personajes en la tripulación.
+
+      - name: recompensa_maxima
+        description: Recompensa máxima registrada en la tripulación.
+
+      - name: tipo_fruta
+        description: Tipo de fruta que consumen los personajes.
+
+      - name: edad_promedio
+        description: Edad promedio de los personajes por tipo de fruta.
+
+      - name: edad_maxima
+        description: Edad máxima entre los personajes por tipo de fruta.
+
+      - name: nombre_saga
+        description: Nombre de la saga.
+
+      - name: porcentaje_personajes_vivos
+        description: Porcentaje de personajes que siguen vivos por saga.

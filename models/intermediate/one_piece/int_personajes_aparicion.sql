@@ -1,7 +1,4 @@
-{{ config(
-    materialized = 'table',
-    alias = 'int_personajes_aparicion'
-) }}
+{{ config(materialized = 'table',) }}
 
 with base as (
     select

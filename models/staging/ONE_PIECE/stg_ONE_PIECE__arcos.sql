@@ -1,8 +1,4 @@
-{{ 
-  config(
-    materialized = 'incremental',
-    unique_key = 'saga'
-  ) 
+{{ config( materialized = 'incremental', unique_key = 'saga') 
 }}
 
 with arcos as (
